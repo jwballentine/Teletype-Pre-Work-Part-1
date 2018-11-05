@@ -40,49 +40,11 @@ h1 {
 */
 
 /* Your CSS code goes here */
-.progress{
-	background-color: #EF5F3C;
-	height: 10px;
-}
-
-.orange-text{
-	color: #EF5F3C;
-	font-weight: bold;
-}
-
-.question{
-	color: #20A1D4;
-	font-family: "rooney-sans", Avenir-Book, Calibri, sans-serif;
-}
-.item1 {
-	grid-area: header;
-	background-color: #424242;
-	color: #eaeaea;
-	border-radius: 3px;
-	padding: 10px 0px;
-	font-family: "rooney-sans";
-}
-
-.item2 {
-	grid-area: main;
-	text-align: left;
-	color: #777;
-	border: 1px solid #eaeaea;
-	margin:auto;
-	padding: 12px 12px;
-	font-size: 14px;
-}
-
-.item3 {
-	grid-area: footer;
-	color: #eaeaea;
-	font-family:  Rockwell, serif;
-}
-
 .grid-container {
   display: grid;
   grid-template-areas:
     'header header'
+		'progress progress'
     'main main'
     'footer footer';
   grid-gap: 10px;
@@ -92,43 +54,180 @@ h1 {
 	margin: auto;
 }
 
-
-.give-button{
-	background-color: #1CBC2C;
-	border: none;
-	border-radius: 2px;
-	color: white;
-	padding: 12px 12px;
+.remaining-funds {
+	margin: .5em auto;
+	max-width: 260px;
 	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: auto;
-	cursor: pointer;
+	background-color: #424242;
+	color: #eaeaea;
+	border-radius: 3px;
+	padding: 14px 10px;
+	font-family: "rooney-sans", sans-serif;
+	font-size: 13px;
+	position: relative;
 }
 
-.donation-box{
-	border-radius: 2px;
-	color: #424242;
-	font-size: 16px;
-	padding: 12px 12px;
-	margin: auto;
-	font-weight: bold;
-	width: 100px;
-	display: inline-block;
-	border: 1.5px solid #eaeaea;
+.remaining-funds:after {
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	border-top: 0px solid #424242;
+	border-right: 2px solid #424242;
+	border-bottom: 2px solid #424242;
+	border-left: 0px solid #424242;
+	top:100%;
+	left: 87%;
+	margin-left: -3px;
+	content: '';
+	transform: rotate(45deg);
+	margin-top: -4px;
+	background: #424242;
 }
 
-.lower-button{
-	/*background-color: #eaeaea;*/
+.fund-meter{
+	display:grid;
+	grid-template-columns: 75% 25%;
+	border: .5px solid #eaeaea;
+	height: 12px;
+	max-width: 260px;
+	text-align: center;
+	margin: auto;
+	background-color: #F8F8F8;
+}
+
+.percent-given {
+	background-color: #EF5F3C;
+}
+
+.wrapper{
+	display: grid;
+	grid-template-areas:
+		'info info'
+		'button button'
+		'question question';
+	grid-gap: 10px;
+	padding: 5px;
+	max-width: 260px;
+	text-align: center;
+	margin: auto;
 	border: 1px solid #eaeaea;
-	border-radius: 2px;
+	box-shadow: 0px 1.5px #F0F0F0;
+}
+
+.top {
+	grid-area: info;
+	text-align: left;
 	color: #777;
-	padding: 12px 12px;
+	margin:auto;
+	padding: 8px 12px;
+	font-size: 14px;
+	opacity: .8;
+	margin-bottom: 1px;
+}
+
+.middle {
+	grid-area: button;
+	text-align: left;
+	color: #777;
+	margin:auto;
+	padding: 8px 12px;
+	font-size: 14px;
+	margin-top: 1px;
+}
+
+.bottom {
+	grid-area: question;
+	text-align: left;
+	color: #20A1D4;
+	font-family: "rooney-sans", Avenir-Book, Calibri, sans-serif;
+	font-size: 13px;
+	padding-left: 12px;
+	padding-bottom: 15px;
+	margin-top: -15px;
+}
+
+.footer-buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 18px;
+	max-width: 260px;
+	color: #eaeaea;
+	font-family:  Rockwell, serif;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.bottom-button{
+	background-color: #F8F8F8;
+	border: 1px solid #D0D0D0;
+	border-bottom: 1.5px solid #D0D0D0;
+	border-radius: 3px;
+	color: #777;
+	padding: 10px 8px;
 	text-align: center;
 	display: inline-block;
 	font-size: 12px;
 	margin: auto;
 	cursor: pointer;
 	font-weight: bold;
+	width:120px;
+	opacity: .8;
+	font-weight: bold;
+}
+
+.progress {
+	display: grid;
+	grid-column: 75%;
+	background-color: #EF5F3C;
+	height: 10px;
+	grid-area: progress;
+	grid-gap: 0px;
+}
+
+.orange-text{
+	color: #EF5F3C;
+	font-weight: bold;
+}
+
+.give-button{
+	background-color: #1CBC2C;
+	border: none;
+	border-radius: 3px;
+	color: white;
+	padding: 12px 16px;
+	text-align: center;
+	text-decoration: none;
+	/*display: inline-block;*/
+	font-size: 14px;
+	margin: auto;
+	cursor: pointer;
+	width:100px;
+}
+
+.donation-box{
+	border-radius: 3px;
+	color: #777;
+	font-size: 14px;
+	padding: 10px 8px;
+	margin: auto;
+	font-weight: bold;
+	width: 100px;
+	display: inline-block;
+	border: 1.5px solid #eaeaea;
+	width:100px;
+}
+
+.donate{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 20px;
+	margin: auto;
+
+}
+
+.dollar-format{
+	display: inline-block;
+  padding: 3px;
+  /*border: 1.5px solid #eaeaea;*/
 }
